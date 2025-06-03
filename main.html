@@ -18,7 +18,10 @@
 
     <dialog id="add-book-dialog">
     <form method="dialog" id="add-book-form" closedby = "any">
-        <h2>Add Book</h2>
+        <div class="form-header">
+            <h2>Add Book</h2>
+            <button type="button" class="close-button" id="close-dialog">X</button>
+        </div>
         <div class="form-main">
             <div class="containerLine">
                 <label for="title">Title</label>
@@ -34,7 +37,7 @@
             </div>
             <div class="containerLine">
                 <label for="read">Read</label>
-                <input type="checkbox" id="read" name="read">
+                <input type="checkbox" id="read" name="read" value = "true">
             </div>
         </div>
         <button type="submit">Submit</button>

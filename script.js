@@ -2,7 +2,9 @@
 const myLibrary = [];
 let container = document.querySelector(".container");
 let addButton = document.querySelector("#add-button")
+let closeButton = document.querySelector("#close-dialog")
 let body = document.querySelector("body");
+
 
 let dialog = document.querySelector("dialog");
 let form = document.querySelector("form");
@@ -111,5 +113,15 @@ function displayForm(){
 form.addEventListener("submit", (e) => submitData(e))
 
 function submitData(e) {
-    
+    e.preventDefault();
+    const title = form.title.value;
+    const author = form.author.value;
+    const pages = form.pages.value;
+    const read = form.read.checked;
+    addBookToLibrary(title, author, pages, read);
+    displayBook(myLibrary[myLibrary.length -1]);
+    dialog.close();
+    form.reset();
 }
+
+closeButton.addEventListener("click", () => dialog.close()); 

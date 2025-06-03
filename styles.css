@@ -162,6 +162,18 @@ form {
     gap:20px;
 }
 
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+
+.close-button {
+    justify-self: end;
+    width: clamp(30px, 100%, 50px);
+}
+
 .form-main {
     display: grid;
     gap: 10px;
