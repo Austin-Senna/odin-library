@@ -4,6 +4,9 @@ let container = document.querySelector(".container");
 let addButton = document.querySelector("#add-button")
 let body = document.querySelector("body");
 
+let dialog = document.querySelector("dialog");
+let form = document.querySelector("form");
+
 function Book(title, author, pages, isRead, id) {
     if (!new.target) {
         throw Error("Make it a new target.")
@@ -100,55 +103,13 @@ main();
 addButton.addEventListener("click", displayForm);
 
 function displayForm(){
-    let dialog = document.createElement("dialog");
-
-    let form = document.createElement("form");
-
-    let title = document.createElement("h2");
-    title.innerText = "Add Book";
-
-    let mainContent = document.createElement("div");
-    mainContent.classList.add("form-main");
-    let bookTitle = createLine("title", "Title");
-    let bookAuthor = createLine("author", "Author");
-    let bookPages = createLine("pages", "Pages");
-    mainContent.appendChild(bookTitle);
-    mainContent.appendChild(bookAuthor);
-    mainContent.appendChild(bookPages);
-
-    let submitButton = document.createElement("button");
-    submitButton.setAttribute("type", "submit");
-    submitButton.addEventListener("click", () => 
-    {
-        let newBook = new Book ()
-    });
-
-    form.appendChild(title);
-    form.appendChild(mainContent);
-    form.appendChild(submitButton);
-
-    dialog.appendChild(form);
-
-    container.appendChild(dialog);
+    if (!dialog.open) {
+        dialog.showModal();
+    }
 }
 
-/* input: string */
-function createLine(inputType, inputString) {
-    let container = document.createElement("div");
-    container.classList.add("containerLine");
+form.addEventListener("submit", (e) => submitData(e))
 
-    let label = document.createElement("label");
-    label.setAttribute("for", inputType);
-    label.innerText = inputString;
-
-    let input = document.createElement("input");
-    input.setAttribute("required", "");
-    input.setAttribute("type", "text");
-    input.setAttribute("id", inputType);
-    input.setAttribute("name", inputType);
-
-    container.appendChild(label);
-    container.appendChild(input);
-
-    return container;
+function submitData(e) {
+    
 }

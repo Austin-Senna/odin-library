@@ -79,6 +79,7 @@ body {
     height: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-rows: auto;
     gap: 16px;
     padding: 16px;
 }
@@ -89,7 +90,6 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 16px;
     display: grid;
-    grid-template-rows: auto auto auto 1fr;
     align-self: center;
     overflow: auto;
 }
@@ -98,6 +98,7 @@ body {
     font-size: 1.5rem;
     color: #333;
 }
+
 .card p {
     font-size: 1rem;
     color: #666;
@@ -124,7 +125,7 @@ body {
     height: 100%;
 }
 
-button:hover {
+button:hover, button:focus {
     background-color: #ffb84d !important;
     transform: scale(1.05);
     transition: background-color 0.3s ease, transform 0.3s ease;
@@ -144,4 +145,9 @@ button:hover {
 .card:hover {
     transform: scale(1.02);
     transition: transform 0.3s ease;
+}
+
+.dialog {
+    align-self: center;
+    justify-self: center;
 }
