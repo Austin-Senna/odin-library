@@ -2,6 +2,7 @@
 const myLibrary = [];
 let container = document.querySelector(".container");
 let addButton = document.querySelector("#add-button")
+let body = document.querySelector("body");
 
 function Book(title, author, pages, isRead, id) {
     if (!new.target) {
@@ -71,7 +72,7 @@ function toggleRead(e, id) {
     var toggleIndex = myLibrary.findIndex(book => book.id == id);
     myLibrary[toggleIndex].isRead = !myLibrary[toggleIndex].isRead;
 
-    var  newRead = myLibrary[toggleIndex].isRead;
+    var newRead = myLibrary[toggleIndex].isRead;
     e.currentTarget.readTextElement.innerText = generateReadText(newRead);
 }
 
@@ -85,9 +86,10 @@ function removeParent(e, id){
 
 
 function main() {
-    addBookToLibrary("Austin's Love Story", "Austin Senna", 123, false);
+    addBookToLibrary("Austin's Storyline", "Austin Senna", 123, false);
     addBookToLibrary("Javier's Coding Journey", "Javier Enrique Wong", 301, true);
-    
+    addBookToLibrary("Javascript Cranks", "Billy Asher", 542, false);
+
     for (const book of myLibrary) {
         displayBook(book);
     }
@@ -98,6 +100,55 @@ main();
 addButton.addEventListener("click", displayForm);
 
 function displayForm(){
+    let dialog = document.createElement("dialog");
+
     let form = document.createElement("form");
-    
+
+    let title = document.createElement("h2");
+    title.innerText = "Add Book";
+
+    let mainContent = document.createElement("div");
+    mainContent.classList.add("form-main");
+    let bookTitle = createLine("title", "Title");
+    let bookAuthor = createLine("author", "Author");
+    let bookPages = createLine("pages", "Pages");
+    mainContent.appendChild(bookTitle);
+    mainContent.appendChild(bookAuthor);
+    mainContent.appendChild(bookPages);
+
+    let submitButton = document.createElement("button");
+    submitButton.setAttribute("type", "submit");
+    submitButton.addEventListener("click", () => 
+    {
+        let newBook = new Book ()
+    });
+
+    form.appendChild(title);
+    form.appendChild(mainContent);
+    form.appendChild(submitButton);
+
+    dialog.appendChild(form);
+
+    container.appendChild(dialog);
+}
+
+/* input: string */
+function createLine(inputType, inputString) {
+    let container = document.createElement("div");
+    container.classList.add("containerLine");
+
+    let label = document.createElement("label");
+    label.setAttribute("for", inputType);
+    label.innerText = inputString;
+
+    let input = document.createElement("input");
+    input.setAttribute("required", "");
+    input.setAttribute("type", "text");
+    input.setAttribute("id", inputType);
+    input.setAttribute("name", inputType);
+
+    container.appendChild(label);
+    container.appendChild(input);
+
+    return container;
 }
