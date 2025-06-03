@@ -1,0 +1,131 @@
+*, *::before, *::after {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+list-style: none;
+transition: 0.3s ease-in-out;
+}
+
+body {
+line-height: 1.5;
+-webkit-font-smoothing: antialiased;
+}
+
+ol[role='list'], ul[role='list'] {
+list-style: none;
+padding-inline: 0;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+overflow-wrap: break-word;
+}
+
+img, picture, video, canvas, svg {
+display: block;
+max-width: 100%;
+}
+
+input, button, textarea, select {
+font: inherit;
+}
+
+#root, #__next {
+isolation: isolate;
+}
+
+html{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    padding: clamp(20px, 5vw, 40px);
+    gap: clamp(20px, 5vw, 40px);
+    display: grid;
+    grid-template-rows: auto 1fr;
+    place-items: start center;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+}
+
+.header {
+    display: grid;
+}
+
+.header button {
+    background-color: #757b81;
+    box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.container {
+    background-color: rgb(229, 225, 187);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    width: 70%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    padding: 16px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    display: grid;
+    grid-template-rows: auto auto auto 1fr;
+    align-self: center;
+    overflow: auto;
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    color: #333;
+}
+.card p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 16px;
+}
+.card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.card button {
+    background-color: #007bff;
+    box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: clamp(30px, 100%, 50px);
+    justify-self: end;
+}
+
+button:hover, button:focus {
+    background-color: #0056b3;
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+
+}
