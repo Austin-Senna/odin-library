@@ -72,7 +72,7 @@ body {
 }
 
 .container {
-    background-color: rgb(229, 225, 187);
+    background-color: rgb(97, 96, 90);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
     width: 70%;
@@ -101,7 +101,6 @@ body {
 .card p {
     font-size: 1rem;
     color: #666;
-    margin-bottom: 16px;
 }
 .card h3 {
     font-size: 1.2rem;
@@ -110,7 +109,7 @@ body {
 }
 
 .card button {
-    background-color: #007bff;
+    background-color: #f49338;
     box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);
     font-weight: bold;
     color: white;
@@ -120,12 +119,29 @@ body {
     cursor: pointer;
     transition: background-color 0.3s ease;
     width: clamp(30px, 100%, 50px);
-    justify-self: end;
+    align-self: center;
+    width: 50px;
+    height: 100%;
 }
 
-button:hover, button:focus {
-    background-color: #0056b3;
+button:hover {
+    background-color: #ffb84d !important;
     transform: scale(1.05);
-    transition: transform 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
 
+.card button.delete {
+    background-color: darkred ;
+}
+
+.buttonContainer {
+    display: flex;
+    align-items: stretch;
+    justify-self: end;
+    gap: 8px;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
 }
